@@ -16,8 +16,10 @@ st.caption('This is a simple app that predicts the compressive strenght of a con
 
 lm_pick = open('strenght.pkl', 'rb')
 scaler_pick = open('strenght_scaler.pkl', 'rb')
-lm = pickle.load(lm_pick)
+
+lme = pickle.load(lm_pick)
 scaler = pickle.load(scaler_pick)
+
 #st.write(lm)
 st.write()
 
@@ -44,7 +46,7 @@ if submitted:
     dummy_features = pd.get_dummies(features)
     scaled_features = scaler.transform(dummy_features)
 
-    prediction = lm.predict(scaled_features)
+    prediction = lme.predict(scaled_features)
 
 
     st.write(f'Predicted Strenght:  {prediction[0]:.2f}')
