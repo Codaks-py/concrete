@@ -14,11 +14,13 @@ st.caption('This is a simple app that predicts the compressive strenght of a con
 
 
 
-lm_pick = open('strenght.pkl', 'rb')
-scaler_pick = open('strenght_scaler.pkl', 'rb')
+with open('strenght.pkl', 'rb') as lm_pick:
+    lme = pickle.load(lm_pick)
 
-lme = pickle.load(lm_pick)
-scaler = pickle.load(scaler_pick)
+with open('strenght_scaler.pkl', 'rb') as scaler_pick:
+    scaler = pickle.load(scaler_pick)
+
+
 
 #st.write(lm)
 st.write()
